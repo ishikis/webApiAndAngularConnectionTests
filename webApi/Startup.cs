@@ -41,6 +41,13 @@ namespace webApi
                 app.UseHsts();
             }
 
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins("http://localhost:4200/");
+                builder.AllowAnyHeader();
+                builder.AllowAnyMethod();
+                builder.AllowAnyOrigin();
+            });
             app.UseHttpsRedirection();
             app.UseMvc();
         }
